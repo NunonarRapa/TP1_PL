@@ -76,11 +76,11 @@ negtests = []
 
 for token in iter(lexer.token, None):
     if token.type == "TESTPOS":
-        captures = re.fullmatch(rf"ok[ ]([0-9])+(\n|{testcomment})", token.value)
+        captures = re.fullmatch(rf"ok[ ]([0-9]+)(\n|{testcomment})", token.value)
         postests.append((captures.group(1)))
         poscount += 1
     if token.type == "TESTNEG":
-        captures = re.fullmatch(rf"not[ ]ok[ ]([0-9])+(\n|{testcomment})", token.value)
+        captures = re.fullmatch(rf"not[ ]ok[ ]([0-9]+)(\n|{testcomment})", token.value)
         negtests.append((captures.group(1)))
         negcount += 1
     if token.type == "SUBTESTPOS":
