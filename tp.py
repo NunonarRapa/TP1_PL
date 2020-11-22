@@ -11,13 +11,13 @@ else:
     filename = sys.argv[1]
 
 
-testcomment = r"[ ]-[ ].*\n"
+testcomment = r"([ ](-|\#)[ ].*\n)"
 
 
 testpos = rf"ok[ ][0-9]+(\n|{testcomment})"
 
 
-testneg = rf"not[ ]ok[ ][0-9]+(\n|{testcomment})"
+testneg = rf"not[ ]ok[ ][0-9]+(\n|{testcomment}|)"
 
 
 subtestpos = rf"[ ]+{testpos}"
